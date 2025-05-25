@@ -25,7 +25,7 @@ def main():
     asteroid.Asteroid.containers = (updatables,drawables,asteroids)
     AsteroidField.AsteroidField.containers = (updatables)
     Shot.Shot.containers = (updatables,drawables,shots)
-    
+
 
 
      #Initialise individual spritesg
@@ -38,9 +38,15 @@ def main():
         updatables.update(dt)
 
         for ast in asteroids:
+             for shot in shots:
+                  if (ast.colliding_with(shot)):
+                       shot.kill()
+                       ast.split()
+                  
              if(ast.colliding_with(p1)):
                   print("Game Over!")
                   sys.exit()
+               
 
         for sprite in drawables:
              sprite.draw(screen) 
