@@ -1,3 +1,5 @@
+# Provided by boot.dev
+
 import pygame
 import random
 from asteroid import Asteroid

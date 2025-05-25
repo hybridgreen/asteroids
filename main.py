@@ -4,6 +4,7 @@ from constants import *
 import player
 import asteroid
 import AsteroidField
+import sys
 
 
 def main():
@@ -31,7 +32,13 @@ def main():
      #Main game loop to imprement game funtionality
     while(True):
         screen.fill("black")
-        updatables.update(dt) 
+        updatables.update(dt)
+
+        for ast in asteroids:
+             if(ast.colliding_with(p1)):
+                  print("Game Over!")
+                  sys.exit()
+                  
         for sprite in drawables:
              sprite.draw(screen) 
 
