@@ -12,8 +12,8 @@ def main():
     p1 = player.Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
     while(True):
         screen.fill("black")
-        p1.draw(screen)
-
+        p1.update(dt) 
+        p1.draw(screen) # render the player
         for event in pygame.event.get(): # Implementing the exit button to close the game window
              if event.type == pygame.QUIT:
                   return
