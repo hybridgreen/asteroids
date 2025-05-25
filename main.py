@@ -5,7 +5,7 @@ import player
 import asteroid
 import AsteroidField
 import sys
-
+import Shot
 
 def main():
     print("Starting Asteroids!")
@@ -20,9 +20,12 @@ def main():
     updatables = pygame.sprite.Group()
     drawables = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
     player.Player.containers = (updatables, drawables)
     asteroid.Asteroid.containers = (updatables,drawables,asteroids)
     AsteroidField.AsteroidField.containers = (updatables)
+    Shot.Shot.containers = (updatables,drawables,shots)
+    
 
 
      #Initialise individual spritesg
@@ -38,7 +41,7 @@ def main():
              if(ast.colliding_with(p1)):
                   print("Game Over!")
                   sys.exit()
-                  
+
         for sprite in drawables:
              sprite.draw(screen) 
 
